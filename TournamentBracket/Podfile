@@ -1,0 +1,14 @@
+platform :ios, '12.0'
+
+def utility_pods
+  pod 'R.swift'
+  pod 'SwiftLint'
+end
+
+target 'TournamentBracket' do
+  use_frameworks!
+  inhibit_all_warnings!
+
+  utility_pods
+
+end
