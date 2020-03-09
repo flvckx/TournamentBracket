@@ -89,10 +89,12 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 1 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
+    /// Storyboard `Tournament`.
+    static let tournament = _R.storyboard.tournament()
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -101,9 +103,44 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Tournament", bundle: ...)`
+    static func tournament(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.tournament)
+    }
+    #endif
+
     fileprivate init() {}
   }
   #endif
+
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  struct nib {
+    /// Nib `TournamentCell`.
+    static let tournamentCell = _R.nib._TournamentCell()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "TournamentCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.tournamentCell) instead")
+    static func tournamentCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.tournamentCell)
+    }
+    #endif
+
+    static func tournamentCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TournamentCell? {
+      return R.nib.tournamentCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TournamentCell
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `TournamentCell`.
+    static let tournamentCell: Rswift.ReuseIdentifier<TournamentCell> = Rswift.ReuseIdentifier(identifier: "TournamentCell")
+
+    fileprivate init() {}
+  }
 
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
@@ -126,10 +163,33 @@ struct _R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
+  struct nib {
+    struct _TournamentCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = TournamentCell
+
+      let bundle = R.hostingBundle
+      let identifier = "TournamentCell"
+      let name = "TournamentCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TournamentCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TournamentCell
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+  #endif
+
+  #if os(iOS) || os(tvOS)
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
       try launchScreen.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try tournament.validate()
       #endif
     }
 
@@ -143,6 +203,26 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct tournament: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "Tournament"
+      let tournamentView = StoryboardViewControllerResource<TournamentView>(identifier: "TournamentView")
+
+      func tournamentView(_: Void = ()) -> TournamentView? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tournamentView)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.tournament().tournamentView() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tournamentView' could not be loaded from storyboard 'Tournament' as 'TournamentView'.") }
       }
 
       fileprivate init() {}
