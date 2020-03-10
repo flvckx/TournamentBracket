@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TournamentCell" rowHeight="122" id="8MR-EL-EtP" customClass="TournamentCell" customModule="TournamentBracket" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8MR-EL-EtP" id="eaK-i1-WlV">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqz-Ff-ame">
+                        <rect key="frame" x="50" y="21" width="309" height="80"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9a-Xd-u4S">
+                                <rect key="frame" x="133.5" y="19.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uty-1s-aIH">
+                                <rect key="frame" x="133.5" y="46.5" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="EPR-RN-Mjt"/>
+                            <constraint firstItem="M9a-Xd-u4S" firstAttribute="centerY" secondItem="Hqz-Ff-ame" secondAttribute="centerY" multiplier="0.75" id="idi-eZ-gV5"/>
+                            <constraint firstItem="Uty-1s-aIH" firstAttribute="centerX" secondItem="M9a-Xd-u4S" secondAttribute="centerX" id="k88-Kf-qqk"/>
+                            <constraint firstItem="Uty-1s-aIH" firstAttribute="top" secondItem="M9a-Xd-u4S" secondAttribute="bottom" constant="6" id="wFV-mZ-Bie"/>
+                            <constraint firstItem="M9a-Xd-u4S" firstAttribute="centerX" secondItem="Hqz-Ff-ame" secondAttribute="centerX" id="yA4-yg-oAq"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uor-ZU-SYf">
+                        <rect key="frame" x="359" y="0.0" width="55" height="122"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="EPE-Bl-oyv"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUc-pz-2Tt">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="122"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="R2f-d7-dRq"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Uor-ZU-SYf" secondAttribute="trailing" id="9Ro-SA-EaJ"/>
+                    <constraint firstItem="Uor-ZU-SYf" firstAttribute="top" secondItem="eaK-i1-WlV" secondAttribute="top" id="I6X-Q5-pT1"/>
+                    <constraint firstItem="Uor-ZU-SYf" firstAttribute="leading" secondItem="Hqz-Ff-ame" secondAttribute="trailing" id="My0-eS-aUH"/>
+                    <constraint firstItem="DUc-pz-2Tt" firstAttribute="leading" secondItem="eaK-i1-WlV" secondAttribute="leading" id="Vga-P1-peq"/>
+                    <constraint firstAttribute="bottom" secondItem="Uor-ZU-SYf" secondAttribute="bottom" id="Yx0-ey-t43"/>
+                    <constraint firstItem="Hqz-Ff-ame" firstAttribute="centerY" secondItem="eaK-i1-WlV" secondAttribute="centerY" id="dGd-7Z-D24"/>
+                    <constraint firstAttribute="bottom" secondItem="DUc-pz-2Tt" secondAttribute="bottom" id="eIQ-JX-Jem"/>
+                    <constraint firstItem="DUc-pz-2Tt" firstAttribute="top" secondItem="eaK-i1-WlV" secondAttribute="top" id="uab-Me-mDO"/>
+                    <constraint firstItem="Hqz-Ff-ame" firstAttribute="leading" secondItem="DUc-pz-2Tt" secondAttribute="trailing" id="ugH-fL-nN5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="awayTeamNameLabel" destination="Uty-1s-aIH" id="rkK-yj-XgK"/>
+                <outlet property="homeTeamNameLabel" destination="M9a-Xd-u4S" id="cAe-n2-Vwt"/>
+                <outlet property="infoView" destination="Hqz-Ff-ame" id="IWx-7H-mec"/>
+                <outlet property="leftContainerWidthConstraint" destination="R2f-d7-dRq" id="JZc-At-MB0"/>
+                <outlet property="leftSubLayerContainet" destination="DUc-pz-2Tt" id="WIU-81-IoV"/>
+                <outlet property="rightContainerWidthConstraint" destination="EPE-Bl-oyv" id="Ejp-KJ-pW4"/>
+                <outlet property="rightSubLayerContainer" destination="Uor-ZU-SYf" id="RKA-Sg-947"/>
+            </connections>
+            <point key="canvasLocation" x="-81.159420289855078" y="-48.214285714285715"/>
+        </tableViewCell>
+    </objects>
+</document>
