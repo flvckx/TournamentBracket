@@ -40,7 +40,7 @@ final class TournamentCoordinator: Coordinatable & CoordinatorFinishable {
         for roundNumber in 0...rounds - 1 {
             let coef = Int(pow(2, Double(roundNumber)))
             let tournamentScene = tournamentSceneFactory.scene(
-                matches: matchesRounds[roundNumber],
+                matches: matchesRounds[roundNumber].sorted(by: { $0.matchId > $1.matchId }),
                 isFirstRound: roundNumber == 0,
                 isFinalRound: roundNumber == rounds - 1
             )

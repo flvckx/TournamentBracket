@@ -17,8 +17,26 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqz-Ff-ame">
                         <rect key="frame" x="50" y="21" width="309" height="80"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9a-Xd-u4S">
+                                <rect key="frame" x="133.5" y="19.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uty-1s-aIH">
+                                <rect key="frame" x="133.5" y="46.5" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="EPR-RN-Mjt"/>
+                            <constraint firstItem="M9a-Xd-u4S" firstAttribute="centerY" secondItem="Hqz-Ff-ame" secondAttribute="centerY" multiplier="0.75" id="idi-eZ-gV5"/>
+                            <constraint firstItem="Uty-1s-aIH" firstAttribute="centerX" secondItem="M9a-Xd-u4S" secondAttribute="centerX" id="k88-Kf-qqk"/>
+                            <constraint firstItem="Uty-1s-aIH" firstAttribute="top" secondItem="M9a-Xd-u4S" secondAttribute="bottom" constant="6" id="wFV-mZ-Bie"/>
+                            <constraint firstItem="M9a-Xd-u4S" firstAttribute="centerX" secondItem="Hqz-Ff-ame" secondAttribute="centerX" id="yA4-yg-oAq"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -54,6 +72,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="awayTeamNameLabel" destination="Uty-1s-aIH" id="rkK-yj-XgK"/>
+                <outlet property="homeTeamNameLabel" destination="M9a-Xd-u4S" id="cAe-n2-Vwt"/>
                 <outlet property="infoView" destination="Hqz-Ff-ame" id="IWx-7H-mec"/>
                 <outlet property="leftContainerWidthConstraint" destination="R2f-d7-dRq" id="JZc-At-MB0"/>
                 <outlet property="leftSubLayerContainet" destination="DUc-pz-2Tt" id="WIU-81-IoV"/>

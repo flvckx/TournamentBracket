@@ -50,6 +50,10 @@ extension TournamentViewModel: UITableViewDataSource {
         tournamentCell.isFirstRound = isFirstRound
         tournamentCell.isFinal = isFinalRound
         tournamentCell.isFirstPairGame = indexPath.row % 2 == 0
+        tournamentCell.setContent(
+            homeTeam: matches[indexPath.row].homeTeam,
+            awayTeam: matches[indexPath.row].awayTeam
+        )
         tournamentCell.drawBrackets()
 
         return tournamentCell

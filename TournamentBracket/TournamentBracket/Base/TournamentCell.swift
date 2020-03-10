@@ -12,12 +12,16 @@ protocol ITournamentCell {
     var isFirstRound: Bool { get set }
     var isFirstPairGame: Bool { get set }
     var isFinal: Bool { get set }
+
+    func setContent(homeTeam: String, awayTeam: String)
 }
 
 class TournamentCell: UITableViewCell, ITournamentCell {
 
     @IBOutlet private var infoView: UIView!
 
+    @IBOutlet private var homeTeamNameLabel: UILabel!
+    @IBOutlet private var awayTeamNameLabel: UILabel!
     @IBOutlet private var rightSubLayerContainer: UIView!
     @IBOutlet private var leftSubLayerContainet: UIView!
 
@@ -41,6 +45,11 @@ class TournamentCell: UITableViewCell, ITournamentCell {
         super.awakeFromNib()
         setUpContentView()
 
+    }
+
+    func setContent(homeTeam: String, awayTeam: String) {
+        homeTeamNameLabel.text = homeTeam
+        awayTeamNameLabel.text = awayTeam
     }
 
     func drawBrackets() {
