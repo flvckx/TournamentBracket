@@ -26,17 +26,39 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uor-ZU-SYf">
+                        <rect key="frame" x="359" y="0.0" width="55" height="122"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="EPE-Bl-oyv"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUc-pz-2Tt">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="122"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="R2f-d7-dRq"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Hqz-Ff-ame" secondAttribute="trailing" constant="55" id="571-FO-bHc"/>
-                    <constraint firstItem="Hqz-Ff-ame" firstAttribute="leading" secondItem="eaK-i1-WlV" secondAttribute="leading" constant="50" id="TC4-Bd-cxV"/>
+                    <constraint firstAttribute="trailing" secondItem="Uor-ZU-SYf" secondAttribute="trailing" id="9Ro-SA-EaJ"/>
+                    <constraint firstItem="Uor-ZU-SYf" firstAttribute="top" secondItem="eaK-i1-WlV" secondAttribute="top" id="I6X-Q5-pT1"/>
+                    <constraint firstItem="Uor-ZU-SYf" firstAttribute="leading" secondItem="Hqz-Ff-ame" secondAttribute="trailing" id="My0-eS-aUH"/>
+                    <constraint firstItem="DUc-pz-2Tt" firstAttribute="leading" secondItem="eaK-i1-WlV" secondAttribute="leading" id="Vga-P1-peq"/>
+                    <constraint firstAttribute="bottom" secondItem="Uor-ZU-SYf" secondAttribute="bottom" id="Yx0-ey-t43"/>
                     <constraint firstItem="Hqz-Ff-ame" firstAttribute="centerY" secondItem="eaK-i1-WlV" secondAttribute="centerY" id="dGd-7Z-D24"/>
+                    <constraint firstAttribute="bottom" secondItem="DUc-pz-2Tt" secondAttribute="bottom" id="eIQ-JX-Jem"/>
+                    <constraint firstItem="DUc-pz-2Tt" firstAttribute="top" secondItem="eaK-i1-WlV" secondAttribute="top" id="uab-Me-mDO"/>
+                    <constraint firstItem="Hqz-Ff-ame" firstAttribute="leading" secondItem="DUc-pz-2Tt" secondAttribute="trailing" id="ugH-fL-nN5"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="infoView" destination="Hqz-Ff-ame" id="IWx-7H-mec"/>
-                <outlet property="infoViewLeadingConstraint" destination="TC4-Bd-cxV" id="ZgZ-gY-p70"/>
-                <outlet property="trailingInfoViewContstraint" destination="571-FO-bHc" id="yuc-3F-onD"/>
+                <outlet property="leftContainerWidthConstraint" destination="R2f-d7-dRq" id="JZc-At-MB0"/>
+                <outlet property="leftSubLayerContainet" destination="DUc-pz-2Tt" id="WIU-81-IoV"/>
+                <outlet property="rightContainerWidthConstraint" destination="EPE-Bl-oyv" id="Ejp-KJ-pW4"/>
+                <outlet property="rightSubLayerContainer" destination="Uor-ZU-SYf" id="RKA-Sg-947"/>
             </connections>
             <point key="canvasLocation" x="-81.159420289855078" y="-48.214285714285715"/>
         </tableViewCell>

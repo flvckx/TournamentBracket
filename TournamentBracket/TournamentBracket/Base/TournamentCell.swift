@@ -17,10 +17,15 @@ protocol ITournamentCell {
 class TournamentCell: UITableViewCell, ITournamentCell {
 
     @IBOutlet private var infoView: UIView!
-    @IBOutlet private var infoViewLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet private var trailingInfoViewContstraint: NSLayoutConstraint!
 
-    private let lineLayer = CAShapeLayer()
+    @IBOutlet private var rightSubLayerContainer: UIView!
+    @IBOutlet private var leftSubLayerContainet: UIView!
+
+    @IBOutlet private var rightContainerWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private var leftContainerWidthConstraint: NSLayoutConstraint!
+
+    private let leftContainerLineLayer = CAShapeLayer()
+    private let rightContainerLineLayer = CAShapeLayer()
 
     var isFirstRound: Bool = true
     var isFirstPairGame: Bool = true
@@ -28,29 +33,41 @@ class TournamentCell: UITableViewCell, ITournamentCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        lineLayer.removeFromSuperlayer()
+        leftContainerLineLayer.removeFromSuperlayer()
+        rightContainerLineLayer.removeFromSuperlayer()
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         setUpContentView()
 
     }
 
     func drawBrackets() {
+        if !isFirstRound {
+            drawLeftPath()
+        }
 
-        let path = UIBezierPath()
-
-        drawLeftLink(path)
-        drawRightSubLink(path)
-
-        lineLayer.path = path.cgPath
-        lineLayer.strokeColor = UIColor.white.cgColor// R.color.darkGray()?.cgColor
-        lineLayer.lineWidth = 4
-
-        contentView.layer.addSublayer(lineLayer)
+        if !isFinal {
+            drawRightPath()
+        }
     }
+
+        func drawLeftPath() {
+            leftContainerLineLayer.path = drawLeftLink().cgPath
+            leftContainerLineLayer.strokeColor = UIColor.white.cgColor// R.color.darkGray()?.cgColor
+            leftContainerLineLayer.lineWidth = 4
+
+            leftSubLayerContainet.layer.addSublayer(leftContainerLineLayer)
+        }
+
+        func drawRightPath() {
+            rightContainerLineLayer.path = drawRightSubLink().cgPath
+            rightContainerLineLayer.strokeColor = UIColor.white.cgColor// R.color.darkGray()?.cgColor
+            rightContainerLineLayer.lineWidth = 4
+
+            rightSubLayerContainer.layer.addSublayer(rightContainerLineLayer)
+        }
 }
 
 // MARK: - Private
@@ -62,43 +79,48 @@ private extension TournamentCell {
         infoView.backgroundColor = R.color.darkGray()
     }
 
-    func drawLeftLink(_ path: UIBezierPath) {
-        guard !isFirstRound else { return }
+    func drawLeftLink() -> UIBezierPath {
+        let path = UIBezierPath()
 
         path.move(to: CGPoint(x: 0, y: contentView.center.y))
-        path.addLine(to: CGPoint(x: infoViewLeadingConstraint.constant, y: contentView.center.y))
+        path.addLine(to: CGPoint(x: leftContainerWidthConstraint.constant, y: contentView.center.y))
+
+        return path
     }
 
-    func drawRightSubLink(_ path: UIBezierPath) {
-        guard !isFinal else { return }
+    func drawRightSubLink() -> UIBezierPath {
+        let path = UIBezierPath()
+        let width = rightContainerWidthConstraint.constant
 
-        path.move(to: CGPoint(x: contentView.frame.width - trailingInfoViewContstraint.constant, y: contentView.center.y))
-        path.addLine(to: CGPoint(x: contentView.frame.width - 12, y: contentView.center.y))
+        path.move(to: CGPoint(x: 0, y: contentView.center.y))
+        path.addLine(to: CGPoint(x: width - 12, y: contentView.center.y))
 
         if isFirstPairGame {
             path.addCurve(
-                to: CGPoint(x: contentView.frame.width - 8, y: contentView.center.y + 4),
-                controlPoint1: CGPoint(x: contentView.frame.width - 10, y: contentView.center.y),
-                controlPoint2: CGPoint(x: contentView.frame.width - 8, y: contentView.center.y + 2)
+                to: CGPoint(x: width - 8, y: contentView.center.y + 4),
+                controlPoint1: CGPoint(x: width - 10, y: contentView.center.y),
+                controlPoint2: CGPoint(x: width - 8, y: contentView.center.y + 2)
             )
-            path.addLine(to: CGPoint(x: contentView.frame.width - 8, y: contentView.frame.height - 4))
+            path.addLine(to: CGPoint(x: width - 8, y: contentView.frame.height - 4))
             path.addCurve(
-                to: CGPoint(x: contentView.frame.width - 4, y: contentView.frame.height),
-                controlPoint1: CGPoint(x: contentView.frame.width - 8, y: contentView.frame.height - 2),
-                controlPoint2: CGPoint(x: contentView.frame.width - 4, y: contentView.frame.height))
-            path.addLine(to: CGPoint(x: contentView.frame.width, y: contentView.frame.height))
+                to: CGPoint(x: width - 4, y: contentView.frame.height),
+                controlPoint1: CGPoint(x: width - 8, y: contentView.frame.height - 2),
+                controlPoint2: CGPoint(x: width - 4, y: contentView.frame.height))
+            path.addLine(to: CGPoint(x: width, y: contentView.frame.height))
         } else {
             path.addCurve(
-                to: CGPoint(x: contentView.frame.width - 8, y: contentView.center.y - 4),
-                controlPoint1: CGPoint(x: contentView.frame.width - 10, y: contentView.center.y),
-                controlPoint2: CGPoint(x: contentView.frame.width - 8, y: contentView.center.y - 2)
+                to: CGPoint(x: width - 8, y: contentView.center.y - 4),
+                controlPoint1: CGPoint(x: width - 10, y: contentView.center.y),
+                controlPoint2: CGPoint(x: width - 8, y: contentView.center.y - 2)
             )
-            path.addLine(to: CGPoint(x: contentView.frame.width - 8, y: 4))
+            path.addLine(to: CGPoint(x: width - 8, y: 4))
             path.addCurve(
-                to: CGPoint(x: contentView.frame.width - 4, y: 0),
-                controlPoint1: CGPoint(x: contentView.frame.width - 8, y: 2),
-                controlPoint2: CGPoint(x: contentView.frame.width - 4, y: 0))
-            path.addLine(to: CGPoint(x: contentView.frame.width, y: 0))
+                to: CGPoint(x: width - 4, y: 0),
+                controlPoint1: CGPoint(x: width - 8, y: 2),
+                controlPoint2: CGPoint(x: width - 4, y: 0))
+            path.addLine(to: CGPoint(x: width, y: 0))
         }
+
+        return path
     }
 }
