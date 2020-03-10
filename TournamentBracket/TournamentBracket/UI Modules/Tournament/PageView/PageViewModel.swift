@@ -27,7 +27,8 @@ final class PageViewModel: NSObject, IPagesViewModel {
 
 extension PageViewModel: UIPageViewControllerDataSource {
 
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard
             let tournamentView = viewController as? TournamentView,
             let viewControllerIndex = pages.firstIndex(of: tournamentView) else {
@@ -40,12 +41,12 @@ extension PageViewModel: UIPageViewControllerDataSource {
         guard pages.count > previousIndex else { return nil }
 
         let tournamentViewBefore = pages[previousIndex]
-//        tournamentViewBefore.viewModel.contentOffset = contentOffset// tournamentView.viewModel.contentOffset
 
         return tournamentViewBefore
     }
 
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard
             let tournamentView = viewController as? TournamentView,
             let viewControllerIndex = pages.firstIndex(of: tournamentView) else {
@@ -59,15 +60,7 @@ extension PageViewModel: UIPageViewControllerDataSource {
         guard pagesCount > nextIndex else { return nil }
 
         let tournamentViewAfter = pages[nextIndex]
-//        tournamentViewAfter.viewModel.contentOffset = contentOffset
 
         return tournamentViewAfter
-    }
-}
-
-extension PageViewModel: UIPageViewControllerDelegate {
-
-    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-
     }
 }

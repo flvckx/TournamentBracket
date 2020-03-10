@@ -17,7 +17,7 @@ protocol ITournamentViewModel: UITableViewDataSource, UITableViewDelegate {
 
 final class TournamentViewModel: NSObject, ITournamentViewModel {
 
-    private let pairsCount: Int
+    private let matches: [Match]
 
     var isFirstRound: Bool
     var isFinalRound: Bool
@@ -25,10 +25,10 @@ final class TournamentViewModel: NSObject, ITournamentViewModel {
     var cellHeight: CGFloat = 122
 
 
-    init(pairsCount: Int,
+    init(matches: [Match],
          isFirstRound: Bool,
          isFinalRound: Bool) {
-        self.pairsCount = pairsCount
+        self.matches = matches
         self.isFirstRound = isFirstRound
         self.isFinalRound = isFinalRound
     }
@@ -39,7 +39,7 @@ final class TournamentViewModel: NSObject, ITournamentViewModel {
 extension TournamentViewModel: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pairsCount
+        return matches.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

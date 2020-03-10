@@ -10,9 +10,9 @@ final class TournamentSceneFactory: SceneFactory {
 
     typealias Scene = (view: Presentable, viewModel: ITournamentViewModel)
 
-    func scene(pairsCount: Int, isFirstRound: Bool = false, isFinalRound: Bool = false) -> Scene {
+    func scene(matches: [Match], isFirstRound: Bool = false, isFinalRound: Bool = false) -> Scene {
         let viewModel = TournamentViewModel(
-            pairsCount: pairsCount,
+            matches: matches,
             isFirstRound: isFirstRound,
             isFinalRound: isFinalRound
         )

@@ -32,21 +32,17 @@ final class TournamentCoordinator: Coordinatable & CoordinatorFinishable {
         showPageView()
     }
 
-    private func showTournamentBracket() {
-        let scene = tournamentSceneFactory.scene(pairsCount: firstRoundPairsCount)
-        router.setRootModule(scene.view)
-    }
-
     private func showPageView() {
-        let rounds = Int(log2(Double(firstRoundPairsCount)))
+        let matchesRounds = json()
+        let rounds = matchesRounds.count // Int(log2(Double(firstRoundPairsCount)))
         var scene = pagesSceneFactory.scene()
 
-        for roundNumber in 0...rounds {
+        for roundNumber in 0...rounds - 1 {
             let coef = Int(pow(2, Double(roundNumber)))
             let tournamentScene = tournamentSceneFactory.scene(
-                pairsCount: firstRoundPairsCount / coef,
+                matches: matchesRounds[roundNumber],
                 isFirstRound: roundNumber == 0,
-                isFinalRound: roundNumber == rounds
+                isFinalRound: roundNumber == rounds - 1
             )
 
             guard let tournamentView = tournamentScene.view.toPresent as? TournamentView else { return }
@@ -59,5 +55,18 @@ final class TournamentCoordinator: Coordinatable & CoordinatorFinishable {
         }
 
         router.setRootModule(scene.view)
+    }
+}
+
+// JSON
+
+private extension TournamentCoordinator {
+
+    func json() -> [[Match]] {
+        let fileName = R.file.world_cup_playoff_treeJson.name
+        guard let matchesResponse = JSONParser<MatchesResponse>.parseFileNamed(fileName) else { return [] }
+
+        let matchesRounds = Dictionary(grouping: matchesResponse.matches, by: { $0.stage })
+        return Array(matchesRounds).map { $0.value }.sorted(by: { $0.count > $1.count })
     }
 }

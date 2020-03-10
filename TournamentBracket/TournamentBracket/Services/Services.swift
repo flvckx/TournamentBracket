@@ -7,16 +7,13 @@
 //
 
 final class Services: IAppServices {
-    var authNetworkService: IAuthNetworkService
 
-    required init(authNetworkService: IAuthNetworkService) {
-        self.authNetworkService = authNetworkService
+    required init() {
+
     }
 
     class func buildServices() -> Services {
-        let authNetworkService = AuthNetworkService()
-
-        return Services(authNetworkService: authNetworkService)
+        return Services()
     }
 }
 

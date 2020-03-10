@@ -142,6 +142,20 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.file` struct is generated, and contains static references to 1 files.
+  struct file {
+    /// Resource file `world_cup_playoff_tree.json`.
+    static let world_cup_playoff_treeJson = Rswift.FileResource(bundle: R.hostingBundle, name: "world_cup_playoff_tree", pathExtension: "json")
+
+    /// `bundle.url(forResource: "world_cup_playoff_tree", withExtension: "json")`
+    static func world_cup_playoff_treeJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.world_cup_playoff_treeJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    fileprivate init() {}
+  }
+
   /// This `R.nib` struct is generated, and contains static references to 1 nibs.
   struct nib {
     /// Nib `TournamentCell`.

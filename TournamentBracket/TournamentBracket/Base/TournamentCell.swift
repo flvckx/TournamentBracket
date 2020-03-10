@@ -55,7 +55,7 @@ class TournamentCell: UITableViewCell, ITournamentCell {
 
         func drawLeftPath() {
             leftContainerLineLayer.path = drawLeftLink().cgPath
-            leftContainerLineLayer.strokeColor = UIColor.white.cgColor// R.color.darkGray()?.cgColor
+            leftContainerLineLayer.strokeColor = R.color.darkGray()?.cgColor
             leftContainerLineLayer.lineWidth = 4
 
             leftSubLayerContainet.layer.addSublayer(leftContainerLineLayer)
@@ -63,7 +63,7 @@ class TournamentCell: UITableViewCell, ITournamentCell {
 
         func drawRightPath() {
             rightContainerLineLayer.path = drawRightSubLink().cgPath
-            rightContainerLineLayer.strokeColor = UIColor.white.cgColor// R.color.darkGray()?.cgColor
+            rightContainerLineLayer.strokeColor = R.color.darkGray()?.cgColor
             rightContainerLineLayer.lineWidth = 4
 
             rightSubLayerContainer.layer.addSublayer(rightContainerLineLayer)
