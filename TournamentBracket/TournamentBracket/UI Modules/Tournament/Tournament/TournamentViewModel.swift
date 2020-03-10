@@ -9,19 +9,28 @@
 import UIKit
 
 protocol ITournamentViewModel: UITableViewDataSource, UITableViewDelegate {
-    var pairsCount: Int { get }
+    var isFirstRound: Bool { get }
+    var isFinalRound: Bool { get }
     var contentOffset: CGPoint? { get set }
     var cellHeight: CGFloat { get set }
 }
 
 final class TournamentViewModel: NSObject, ITournamentViewModel {
 
-    let pairsCount: Int
+    private let pairsCount: Int
+
+    var isFirstRound: Bool
+    var isFinalRound: Bool
     var contentOffset: CGPoint?
     var cellHeight: CGFloat = 122
 
-    init(pairsCount: Int) {
+
+    init(pairsCount: Int,
+         isFirstRound: Bool,
+         isFinalRound: Bool) {
         self.pairsCount = pairsCount
+        self.isFirstRound = isFirstRound
+        self.isFinalRound = isFinalRound
     }
 }
 
@@ -38,7 +47,8 @@ extension TournamentViewModel: UITableViewDataSource {
 
         guard let tournamentCell = cell as? TournamentCell else { return cell }
 
-        tournamentCell.isFirstRound = false
+        tournamentCell.isFirstRound = isFirstRound
+        tournamentCell.isFinal = isFinalRound
         tournamentCell.isFirstPairGame = indexPath.row % 2 == 0
         tournamentCell.drawBrackets()
 

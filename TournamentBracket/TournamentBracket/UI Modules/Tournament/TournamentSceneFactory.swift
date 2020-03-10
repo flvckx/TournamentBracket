@@ -10,8 +10,12 @@ final class TournamentSceneFactory: SceneFactory {
 
     typealias Scene = (view: Presentable, viewModel: ITournamentViewModel)
 
-    func scene(pairsCount: Int) -> Scene {
-        let viewModel = TournamentViewModel(pairsCount: pairsCount)
+    func scene(pairsCount: Int, isFirstRound: Bool = false, isFinalRound: Bool = false) -> Scene {
+        let viewModel = TournamentViewModel(
+            pairsCount: pairsCount,
+            isFirstRound: isFirstRound,
+            isFinalRound: isFinalRound
+        )
 
         guard let view = R.storyboard.tournament.tournamentView() else {
             fatalError("Unable to initiate controller with ID: tournamentView")

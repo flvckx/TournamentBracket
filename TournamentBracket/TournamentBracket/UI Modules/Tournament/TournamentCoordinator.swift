@@ -43,7 +43,11 @@ final class TournamentCoordinator: Coordinatable & CoordinatorFinishable {
 
         for roundNumber in 0...rounds {
             let coef = Int(pow(2, Double(roundNumber)))
-            let tournamentScene = tournamentSceneFactory.scene(pairsCount: firstRoundPairsCount / coef)
+            let tournamentScene = tournamentSceneFactory.scene(
+                pairsCount: firstRoundPairsCount / coef,
+                isFirstRound: roundNumber == 0,
+                isFinalRound: roundNumber == rounds
+            )
 
             guard let tournamentView = tournamentScene.view.toPresent as? TournamentView else { return }
 
