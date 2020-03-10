@@ -14,6 +14,10 @@
 		C6159E232416D19E00509F26 /* TournamentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6159E222416D19E00509F26 /* TournamentViewModel.swift */; };
 		C6159E252416D1E200509F26 /* TournamentSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6159E242416D1E200509F26 /* TournamentSceneFactory.swift */; };
 		C6159E272416D24400509F26 /* SceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6159E262416D24400509F26 /* SceneFactory.swift */; };
+		C6159E292416DAC300509F26 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6159E282416DAC300509F26 /* Colors.xcassets */; };
+		C6159E4F24177E9600509F26 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6159E4E24177E9600509F26 /* PageView.swift */; };
+		C6159E512417818300509F26 /* PageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6159E502417818300509F26 /* PageViewModel.swift */; };
+		C6159E532417873E00509F26 /* PageViewSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6159E522417873E00509F26 /* PageViewSceneFactory.swift */; };
 		C67A4159241393EC00A40FA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A4158241393EC00A40FA6 /* AppDelegate.swift */; };
 		C67A4162241393ED00A40FA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C67A4161241393ED00A40FA6 /* Assets.xcassets */; };
 		C67A4165241393ED00A40FA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C67A4163241393ED00A40FA6 /* LaunchScreen.storyboard */; };
@@ -46,6 +50,10 @@
 		C6159E222416D19E00509F26 /* TournamentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentViewModel.swift; sourceTree = "<group>"; };
 		C6159E242416D1E200509F26 /* TournamentSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TournamentSceneFactory.swift; path = "TournamentBracket/UI Modules/Tournament/TournamentSceneFactory.swift"; sourceTree = SOURCE_ROOT; };
 		C6159E262416D24400509F26 /* SceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneFactory.swift; sourceTree = "<group>"; };
+		C6159E282416DAC300509F26 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		C6159E4E24177E9600509F26 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		C6159E502417818300509F26 /* PageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewModel.swift; sourceTree = "<group>"; };
+		C6159E522417873E00509F26 /* PageViewSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PageViewSceneFactory.swift; path = "TournamentBracket/UI Modules/Tournament/PageViewSceneFactory.swift"; sourceTree = SOURCE_ROOT; };
 		C67A4155241393EC00A40FA6 /* TournamentBracket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TournamentBracket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67A4158241393EC00A40FA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C67A4161241393ED00A40FA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +116,24 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		C6159E542417934D00509F26 /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				C6159E4E24177E9600509F26 /* PageView.swift */,
+				C6159E502417818300509F26 /* PageViewModel.swift */,
+			);
+			path = PageView;
+			sourceTree = "<group>";
+		};
+		C6159E552417935A00509F26 /* Tournament */ = {
+			isa = PBXGroup;
+			children = (
+				C6159E202416D16300509F26 /* TournamentView.swift */,
+				C6159E222416D19E00509F26 /* TournamentViewModel.swift */,
+			);
+			path = Tournament;
+			sourceTree = "<group>";
+		};
 		C67A414C241393EC00A40FA6 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				C6159E242416D1E200509F26 /* TournamentSceneFactory.swift */,
+				C6159E522417873E00509F26 /* PageViewSceneFactory.swift */,
 			);
 			path = SceneFactories;
 			sourceTree = "<group>";
@@ -202,8 +229,8 @@
 		C67A418024139CAC00A40FA6 /* Tournament */ = {
 			isa = PBXGroup;
 			children = (
-				C6159E202416D16300509F26 /* TournamentView.swift */,
-				C6159E222416D19E00509F26 /* TournamentViewModel.swift */,
+				C6159E542417934D00509F26 /* PageView */,
+				C6159E552417935A00509F26 /* Tournament */,
 				C6159E1E2416D0FB00509F26 /* Tournament.storyboard */,
 				C67A418124139CBF00A40FA6 /* TournamentCoordinator.swift */,
 			);
@@ -231,6 +258,7 @@
 			children = (
 				C67A4163241393ED00A40FA6 /* LaunchScreen.storyboard */,
 				C67A4161241393ED00A40FA6 /* Assets.xcassets */,
+				C6159E282416DAC300509F26 /* Colors.xcassets */,
 				C67A4166241393ED00A40FA6 /* Info.plist */,
 				C67A41922413A79400A40FA6 /* R.generated.swift */,
 			);
@@ -299,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6159E292416DAC300509F26 /* Colors.xcassets in Resources */,
 				C67A4165241393ED00A40FA6 /* LaunchScreen.storyboard in Resources */,
 				C6159E1F2416D0FB00509F26 /* Tournament.storyboard in Resources */,
 				C6159E192416C10D00509F26 /* TournamentCell.xib in Resources */,
@@ -396,6 +425,7 @@
 				C67A418C2413A01700A40FA6 /* ICoordinatorConfiguration.swift in Sources */,
 				C67A418724139EC700A40FA6 /* AppCoordinator.swift in Sources */,
 				C67A41932413A79400A40FA6 /* R.generated.swift in Sources */,
+				C6159E532417873E00509F26 /* PageViewSceneFactory.swift in Sources */,
 				C67A41732413977500A40FA6 /* Routeable.swift in Sources */,
 				C67A418E2413A40600A40FA6 /* Services.swift in Sources */,
 				C67A41712413973B00A40FA6 /* ICoordinatorFactory.swift in Sources */,
@@ -404,8 +434,10 @@
 				C67A417A24139B9D00A40FA6 /* TournamentCoordinatorFactory.swift in Sources */,
 				C67A4159241393EC00A40FA6 /* AppDelegate.swift in Sources */,
 				C6159E212416D16300509F26 /* TournamentView.swift in Sources */,
+				C6159E512417818300509F26 /* PageViewModel.swift in Sources */,
 				C67A418224139CBF00A40FA6 /* TournamentCoordinator.swift in Sources */,
 				C67A417724139AC700A40FA6 /* IAppServices.swift in Sources */,
+				C6159E4F24177E9600509F26 /* PageView.swift in Sources */,
 				C6159E252416D1E200509F26 /* TournamentSceneFactory.swift in Sources */,
 				C6159E172416C0FB00509F26 /* TournamentCell.swift in Sources */,
 				C6159E272416D24400509F26 /* SceneFactory.swift in Sources */,
@@ -550,6 +582,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PJAZHZWL4D;
 				INFOPLIST_FILE = "/Users/serhiipalash/Desktop/Forza Test/RegistrationFormSample/RegistrationFormSample/RegistrationFormSample/Supportig files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -568,6 +601,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PJAZHZWL4D;
 				INFOPLIST_FILE = "/Users/serhiipalash/Desktop/Forza Test/RegistrationFormSample/RegistrationFormSample/RegistrationFormSample/Supportig files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

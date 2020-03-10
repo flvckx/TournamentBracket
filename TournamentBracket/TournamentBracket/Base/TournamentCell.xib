@@ -17,7 +17,6 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqz-Ff-ame">
                         <rect key="frame" x="50" y="21" width="309" height="80"/>
-                        <color key="backgroundColor" red="0.10588235294117647" green="0.10196078431372549" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="EPR-RN-Mjt"/>
                         </constraints>
@@ -34,9 +33,10 @@
                     <constraint firstItem="Hqz-Ff-ame" firstAttribute="centerY" secondItem="eaK-i1-WlV" secondAttribute="centerY" id="dGd-7Z-D24"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.027450980392156862" green="0.023529411764705882" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="infoView" destination="Hqz-Ff-ame" id="IWx-7H-mec"/>
+                <outlet property="infoViewLeadingConstraint" destination="TC4-Bd-cxV" id="ZgZ-gY-p70"/>
+                <outlet property="trailingInfoViewContstraint" destination="571-FO-bHc" id="yuc-3F-onD"/>
             </connections>
             <point key="canvasLocation" x="-81.159420289855078" y="-48.214285714285715"/>
         </tableViewCell>

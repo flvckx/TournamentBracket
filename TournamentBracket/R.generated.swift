@@ -114,6 +114,34 @@ struct R: Rswift.Validatable {
   }
   #endif
 
+  /// This `R.color` struct is generated, and contains static references to 2 colors.
+  struct color {
+    /// Color `black`.
+    static let black = Rswift.ColorResource(bundle: R.hostingBundle, name: "black")
+    /// Color `darkGray`.
+    static let darkGray = Rswift.ColorResource(bundle: R.hostingBundle, name: "darkGray")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "black", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func black(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.black, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "darkGray", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func darkGray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.darkGray, compatibleWith: traitCollection)
+    }
+    #endif
+
+    fileprivate init() {}
+  }
+
   /// This `R.nib` struct is generated, and contains static references to 1 nibs.
   struct nib {
     /// Nib `TournamentCell`.
@@ -213,7 +241,12 @@ struct _R: Rswift.Validatable {
     struct tournament: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "Tournament"
+      let pageView = StoryboardViewControllerResource<PageView>(identifier: "pageView")
       let tournamentView = StoryboardViewControllerResource<TournamentView>(identifier: "TournamentView")
+
+      func pageView(_: Void = ()) -> PageView? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: pageView)
+      }
 
       func tournamentView(_: Void = ()) -> TournamentView? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tournamentView)
@@ -223,6 +256,7 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.tournament().tournamentView() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tournamentView' could not be loaded from storyboard 'Tournament' as 'TournamentView'.") }
+        if _R.storyboard.tournament().pageView() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'pageView' could not be loaded from storyboard 'Tournament' as 'PageView'.") }
       }
 
       fileprivate init() {}
